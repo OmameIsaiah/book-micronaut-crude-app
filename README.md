@@ -1,29 +1,57 @@
-## Micronaut 4.8.2 Documentation
+# Simple Book Micronaut CRUD App
 
-- [User Guide](https://docs.micronaut.io/4.8.2/guide/index.html)
-- [API Reference](https://docs.micronaut.io/4.8.2/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/4.8.2/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
----
+## Swagger UI
+![Simple Book Micronaut CRUD App](src/main/resources/images/swaggerui.png)
 
-- [Micronaut Maven Plugin documentation](https://micronaut-projects.github.io/micronaut-maven-plugin/latest/)
-## Feature micronaut-aot documentation
-
-- [Micronaut AOT documentation](https://micronaut-projects.github.io/micronaut-aot/latest/guide/)
+- http://localhost:8086/swaggerYAML/book-micronaut-api-0.0.yml
+- http://localhost:8086/swaggerYAML/views/swagger-ui/index.html
 
 
-## Feature maven-enforcer-plugin documentation
 
-- [https://maven.apache.org/enforcer/maven-enforcer-plugin/](https://maven.apache.org/enforcer/maven-enforcer-plugin/)
+## Endpoints
 
-
-## Feature jdbc-hikari documentation
-
-- [Micronaut Hikari JDBC Connection Pool documentation](https://micronaut-projects.github.io/micronaut-sql/latest/guide/index.html#jdbc)
+- http://localhost:8086/api/v1/book
+- http://localhost:8086/api/v1/books
+- http://localhost:8086/api/v1/book/1
 
 
-## Feature serialization-jackson documentation
+## Running the App
 
-- [Micronaut Serialization Jackson Core documentation](https://micronaut-projects.github.io/micronaut-serialization/latest/guide/)
+Navigate to the root directory of the project in a terminal, then run:
+
+```
+ mvn exec:exec
+
+```
+OR:
+
+```
+ .\mvnw mn:run
+
+```
+
+## Packaging and running the application
+
+Run the following commands in the root directory to package and run the application as a .jar file
+
+```
+mvn clean package
+
+java -jar target/book-micronaut-crude-app-0.1.jar
+
+```
+
+Running with Custom Arguments:
+
+```
+java -jar target/book-micronaut-crude-app-0.1.jar -Dmicronaut.server.port=8081 -Dmicronaut.environments=prod
+
+```
+
+## Contributor
+
+| Name         | Email                                       | Contact         | Github                                   |
+|--------------|---------------------------------------------|-----------------|------------------------------------------|
+| Isaiah Omame | omameazy@gmail.com,<br/> omameazy@yahoo.com | +234 7060812940 | [github](https://github.com/OmameIsaiah) |
 
 

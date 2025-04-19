@@ -17,9 +17,6 @@
         <jdk.version>21</jdk.version>
         <release.version>21</release.version>
         <micronaut.version>4.8.2</micronaut.version>
-        <!--        <micronaut.data.version>4.8.11</micronaut.data.version>-->
-        <!--        <micronaut.serialization.version>4.8.11</micronaut.serialization.version>-->
-        <!--        <micronaut.validation.version>4.8.11</micronaut.validation.version>-->
         <micronaut.aot.enabled>false</micronaut.aot.enabled>
         <micronaut.aot.packageName>com.book.aot.generated</micronaut.aot.packageName>
         <micronaut.runtime>netty</micronaut.runtime>
@@ -32,7 +29,6 @@
             <url>https://repo.maven.apache.org/maven2</url>
         </repository>
     </repositories>
-
     <dependencies>
         <dependency>
             <groupId>io.micronaut</groupId>
@@ -111,6 +107,10 @@
             <groupId>io.micronaut</groupId>
             <artifactId>micronaut-management</artifactId>
         </dependency>
+        <dependency>
+            <groupId>io.micronaut.validation</groupId>
+            <artifactId>micronaut-validation</artifactId>
+        </dependency>
     </dependencies>
     <!--<dependencyManagement>
         <dependencies>
@@ -125,6 +125,17 @@
     </dependencyManagement>-->
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.graalvm.buildtools</groupId>
+                <artifactId>native-maven-plugin</artifactId>
+                <version>0.10.3</version>
+                <configuration>
+                    <imageName>book-micronaut-crude-app</imageName>
+                    <buildArgs>
+                        <buildArg>-Ob</buildArg>
+                    </buildArgs>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>io.micronaut.maven</groupId>
                 <artifactId>micronaut-maven-plugin</artifactId>
@@ -142,7 +153,6 @@
                 <configuration>
                     <!-- Uncomment to enable incremental compilation -->
                     <!-- <useIncrementalCompilation>false</useIncrementalCompilation> -->
-
                     <annotationProcessorPaths combine.self="override">
                         <path>
                             <groupId>io.micronaut</groupId>
@@ -181,7 +191,6 @@
                         <path>
                             <groupId>io.micronaut.validation</groupId>
                             <artifactId>micronaut-validation-processor</artifactId>
-                            <version>${micronaut.version}</version>
                         </path>
                         <path>
                             <groupId>io.micronaut.openapi</groupId>
