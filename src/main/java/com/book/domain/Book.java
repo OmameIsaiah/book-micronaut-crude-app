@@ -1,9 +1,13 @@
 package com.book.domain;
 
 import io.micronaut.core.annotation.Introspected;
+import io.micronaut.data.annotation.DateCreated;
+import io.micronaut.data.annotation.DateUpdated;
 import io.micronaut.serde.annotation.Serdeable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+
+import java.util.Date;
 
 @Introspected
 @Serdeable
@@ -18,14 +22,20 @@ public class Book {
     private String subject;
     private String isbn;
     private int pages;
+    @DateCreated
+    private Date createdDate;
+    @DateUpdated
+    private Date updatedDate;
 
-    public Book(Long id, String title, String author, String subject, String isbn, int pages) {
+    public Book(Long id, String title, String author, String subject, String isbn, int pages, Date createdDate, Date updatedDate) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.subject = subject;
         this.isbn = isbn;
         this.pages = pages;
+        this.createdDate = createdDate;
+        this.updatedDate = updatedDate;
     }
 
     public Book() {
@@ -77,5 +87,21 @@ public class Book {
 
     public void setPages(int pages) {
         this.pages = pages;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Date getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(Date updatedDate) {
+        this.updatedDate = updatedDate;
     }
 }
